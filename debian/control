@@ -1,15 +1,28 @@
-Source: template-repository
-Section: unknown
+Source: golang-gopkg-inf.v0
+Section: golang
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: Debian Go Packaging Team <team+pkg-go@tracker.debian.org>
+Uploaders: Sascha Steinbiss <satta@debian.org>
+Build-Depends: debhelper-compat (= 13),
+               dh-golang,
+               golang-any
+Standards-Version: 4.5.1
+Rules-Requires-Root: no
+Homepage: https://github.com/go-inf/inf
+Vcs-Browser: https://salsa.debian.org/go-team/packages/golang-gopkg-inf.v0
+Vcs-Git: https://salsa.debian.org/go-team/packages/golang-gopkg-inf.v0.git
+XS-Go-Import-Path: gopkg.in/inf.v0
+Testsuite: autopkgtest-pkg-go
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: golang-gopkg-inf.v0-dev
+Replaces: golang-speter-go-exp-math-dec-inf-dev
+Breaks: golang-speter-go-exp-math-dec-inf-dev
+Architecture: all
+Multi-Arch: foreign
+Depends: ${shlibs:Depends},
+         ${misc:Depends}
+Description: Golang library for "infinite-precision" decimal arithmetic
+ Package inf (type inf.Dec) implements "infinite-precision" decimal arithmetic.
+ "Infinite precision" describes two characteristics: practically unlimited
+ precision for decimal number representation and no support for calculating
+ with any specific fixed precision.
